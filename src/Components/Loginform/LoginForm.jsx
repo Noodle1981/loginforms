@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './loginForm.css';
 import { FaUser, FaLock  } from "react-icons/fa";
+import { SHA512 } from "crypto-js";
 
 
 const LoginForm= () => {
@@ -22,7 +23,7 @@ const LoginForm= () => {
             method: 'POST',
             body: JSON.stringify({
                 email: email,
-                password: password
+                password: SHA512(password).toString()
             }),
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
