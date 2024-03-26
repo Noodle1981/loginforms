@@ -19,7 +19,8 @@ const LoginForm= () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        fetch('/consulta', {
+        console.log(SHA512(password).toString())
+        fetch('/login', {
             method: 'POST',
             body: JSON.stringify({
                 email: email,
